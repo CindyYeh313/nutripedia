@@ -1,1 +1,24 @@
-<div class="Info"></div>
+<div class="Info">
+  <div class="menu"></div>
+  <div class="content">
+    <div class="content__text">
+      <div class="content__title">{{fruit[currentIdx].name}}</div>
+      <div class="content__des" v-html="fruit[currentIdx].des"></div>
+    </div>
+    <img :src="fruit[currentIdx].img" alt="" class="content__pic" />
+  </div>
+  <div class="subMenu" :style="{backgroundColor:fruit[currentIdx].primary}">
+    <div class="carouselBtn"><</div>
+    <div class="subMenu__carousel">
+      <div
+        class="subMenu__item"
+        :class="{selected:idx === currentIdx}"
+        v-for="(item,idx) in fruit"
+        @click="itemChange(idx)"
+      >
+        <img :src="item.img" alt="" class="subMenu__pic" draggable="false" />
+      </div>
+    </div>
+    <div class="carouselBtn">></div>
+  </div>
+</div>
